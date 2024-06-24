@@ -1,0 +1,58 @@
+.main_cont{
+    display: flex;
+
+}
+.left_cont{
+    width: 10%;
+    height: 200vh;
+    background-color: black;
+    color: white;
+}
+.rightMain_cont{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 200vh;
+}
+.right_cont{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.778),rgba(255, 255, 255, 0.221),rgba(255, 255, 255, 0.323),rgb(255, 255, 255)),url("https://png.pngtree.com/background/20210711/original/pngtree-knowledge-contest-poster-background-illustration-picture-image_1067744.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.right_secMain_cont{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.right_sec_cont{
+    width: 40%;
+    height: 40vh;
+    /* align-self: center; */
+    position: absolute;
+    background-color: rgba(56, 54, 61, 0.164);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -110px;
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 5px 20px;
+}
+.right_third_cont{
+    width: 100%;
+    height: 100vh;
+    margin-top: 20px ;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
