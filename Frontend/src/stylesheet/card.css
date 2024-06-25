@@ -1,0 +1,35 @@
+.card_cont{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.5s;
+}
+.card_cont button{
+    padding: 10px 10px 10px 20px;
+    background-color: rgb(72, 72, 199);
+    color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+}
+.card_cont:hover{
+    transform: scale(1.02);
+    
+}
+.card_cont button:hover{
+    background-color: rgba(72, 72, 199, 0.911);
+    transform:scale(1.05);
+    transition: 0.25s;
+}
+.card_cont button:active{
+    background-color: rgba(72, 72, 199, 0.687);
+    transition: 0.25s;
+}

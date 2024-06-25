@@ -1,28 +1,48 @@
 import React from 'react'
 import '../stylesheet/home.css'
+import Card from '../components/Card'
+import { CgScrollV } from "react-icons/cg";
+import knowledge from '../assets/knowledge.png'
+import removed from '../assets/bgRemoved.png'
+import owl from '../assets/owl.png'
 
 const Homepage = () => {
   return (
     <>
       <div className='main_cont'>
        <div className='left_cont'>
-          <h1> Test Your Knowledge!</h1>
+          <img src={knowledge} alt='image' className='rotated_text' width="900px"/>
+          <CgScrollV style={{fontSize:'70px'}}/>
+          <img src={knowledge} alt='image' className='rotated_text' style={{marginTop:'100px'}} width="900px"/>
        </div>
        <div className='rightMain_cont'>
-          <div className='right_cont'>
-               <h1 style={{fontSize:"100px",fontWeight:"600",textAlign:'center'}}>Onestop Quiz Application To Test Your Inteligence</h1>
+          <div className='right_cont' style={{position:'relative'}}>
+               <h1 style={{fontSize:"100px",fontWeight:"600",textAlign:'center',marginLeft:'30px'}}>Onestop Quiz Application To Test <span style={{color:'transparent'}}>jj</span>Your Inteligence</h1>
+               <img src={removed} alt='image' width="400px" style={{position:'absolute',left:'20px',bottom:'0px'}}/>
+               <img src={owl} alt='image' width="220px" style={{position:'absolute',right:'230px',bottom:'-27px'}}/>
           </div>
           <div className='right_secMain_cont'>
             <div className='right_sec_cont'>
               <h1 style={{textAlign:"center"}}>Choose any of the below topics to start improve your knowledge!</h1>
+              <hr style={{backgroundColor:'black', height:'2px',width:'70%'}}></hr>
+              <button>View More </button>
             </div>
           </div>
-          <div className='right_third_cont'>
-            <div>
-              <hr style={{backgroundColor:'black',width:'80%',height:"5px",alignSelf:"center",marginLeft:"20px"}}></hr>
+
+          <div style={{display:'flex',justifyContent:"center",marginBottom:"20px"}}>
+              <hr style={{backgroundColor:'rgb(105, 102, 102)',width:'90%',height:"3px",borderRadius:'20px',boxShadow: "rgba(47, 57, 193) 5px 10px 15px"}}></hr>
             </div>
-            <div>
-              <h1>general</h1>
+
+          <div className='right_third_cont' >
+            <Card title={"science"}/>
+            <Card title={"social"}/>
+            <Card title={"finance"}/>
+            <Card title={"technology"}/>
+            <Card title={"general knowledge"}/>
+          </div>
+          <div style={{width:'90%',display:'flex',justifyContent:'center',alignItems:'center',position:'relative',bottom:'0px'}}>
+            <div style={{position:'absolute',bottom:'-240px'}}>
+              <p>© 2024 Knowledge. All rights reserved.</p>
             </div>
           </div>
        </div>
