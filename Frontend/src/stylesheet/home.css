@@ -1,12 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC:wght@100..400&display=swap');
 .main_cont{
     display: flex;
 
 }
 .left_cont{
     width: 10%;
-    height: 200vh;
+    height: 230vh;
     background-color: black;
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 500px;
+}
+.rotated_text{
+    transform: rotate(270deg) scale(2.5);
+    margin-top: 300px;
 }
 .rightMain_cont{
     display: flex;
@@ -19,10 +28,14 @@
     height: 50%;
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.778),rgba(255, 255, 255, 0.221),rgba(255, 255, 255, 0.323),rgb(255, 255, 255)),url("https://png.pngtree.com/background/20210711/original/pngtree-knowledge-contest-poster-background-illustration-picture-image_1067744.jpg");
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.381),rgba(0, 0, 0, 0.281),rgba(0, 0, 0, 0.221),rgba(40, 53, 190, 0.323),rgba(255, 255, 255, 0.564)),url("https://img.freepik.com/free-vector/abstract-classic-blue-theme-background_23-2148413643.jpg");
+    background-image: brightness;
     background-position: center;
     background-size: cover;
+    color: white;
+    font-family: 'Playwrite AU VIC', sans-serif;
 }
+
 .right_secMain_cont{
     width: 100%;
     height: 50vh;
@@ -35,17 +48,30 @@
     height: 40vh;
     /* align-self: center; */
     position: absolute;
-    background-color: rgba(56, 54, 61, 0.164);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color:  rgba(176, 177, 197, 0.365);
+    backdrop-filter: blur(6px);
+    box-shadow: rgba(47, 57, 193, 0.35) 0px 5px 15px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
-    top: -110px;
+    top: -150px;
     border-radius: 20px;
     font-size: 25px;
     font-weight: 500;
     padding: 5px 20px;
+    transition: 0.5s;
+}
+.right_sec_cont:hover{
+    transform: scale(1.03);
+}
+.right_sec_cont button{
+    background-color: rgb(72, 72, 199);
+    padding: 5px 20px;
+    border: none;
+    color: white;
+    font-weight: 300;
+    border-radius: 15px;
 }
 .right_third_cont{
     width: 100%;
@@ -54,5 +80,6 @@
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
-    /* align-items: center; */
+    align-items: center;
+   
 }
