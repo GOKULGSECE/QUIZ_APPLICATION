@@ -5,8 +5,15 @@ import { CgScrollV } from "react-icons/cg";
 import knowledge from '../assets/knowledge.png'
 import removed from '../assets/bgRemoved.png'
 import owl from '../assets/owl.png'
+import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
+  const navigate=useNavigate()
+
+  const handleLogin=()=>{
+    navigate('/login')
+  }
+
   return (
     <>
       <div className='main_cont'>
@@ -25,7 +32,7 @@ const Homepage = () => {
             <div className='right_sec_cont'>
               <h1 style={{textAlign:"center"}}>Choose any of the below topics to start improve your knowledge!</h1>
               <hr style={{backgroundColor:'black', height:'2px',width:'70%'}}></hr>
-              <button>View More </button>
+              <button onClick={handleLogin}>Login </button>
             </div>
           </div>
 
