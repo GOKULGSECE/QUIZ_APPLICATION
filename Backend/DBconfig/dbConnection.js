@@ -5,7 +5,7 @@ const connectDB = async () => {
         const conn = await mongoose.connect('mongodb://localhost:27017/quiz-application');
 
         console.log(`MongoDB Connected at ${conn.connection.host}`);
-    } catch (error) {
+    } catch (error) {   
         console.error(`Error: ${error.message}`);
         process.exit(1);
     }
