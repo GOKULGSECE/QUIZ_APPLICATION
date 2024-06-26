@@ -5,7 +5,6 @@ const quizHandler = async (req, res) => {
 
     try {
         const quizzes = await QuizModel.find({ topic });
-        
         if (quizzes.length > 0) {
             res.status(200).json({ quizzes });
         } else {
