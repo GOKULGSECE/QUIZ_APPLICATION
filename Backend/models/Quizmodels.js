@@ -1,13 +1,21 @@
 const mongoose = require('mongoose');
 
 const quizschema = new mongoose.Schema({
-    question:{
-        type:Array,
-        default:[]
+    topic:{
+        type:String,
+        required:true,
     },
-    answers:{
-        type:Array,
-        default:[],
+    question:{
+        type:String,
+        required:true,
+    },
+    options:{
+        type:[String],
+        required:true,
+    },
+    answer:{
+        type:String,
+        required:true,
     },
     createdNow:{
         type:Date,

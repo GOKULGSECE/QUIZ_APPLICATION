@@ -3,11 +3,10 @@ const UserValidation  = async(req,res)=>{
     const {name,password} = req.body;
     try{
         const finder = await Users.findOne({name})
-        if(name)
+        if(finder)
             {
                 if(finder && password == finder.password){
                     res.status(200).json({message:`User found`});
-                    res.status(200).send("Login successfull");
                 }
             }
             else{
