@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC:wght@100..400&display=swap');
+
+
+.quiz_main_cont{
+   
+}
+.quiz_topic{
+    font-size: 100px;
+    font-family: 'Playwrite AU VIC',sans-serif;
+}
+
+.quiz_first_cont{
+    align-self: center;
+    text-align: center;
+}
