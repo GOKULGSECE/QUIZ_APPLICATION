@@ -6,12 +6,12 @@ import knowledge from '../assets/knowledge.png'
 import removed from '../assets/bgRemoved.png'
 import owl from '../assets/owl.png'
 import { useNavigate } from 'react-router-dom';
-
+ 
 const Homepage = () => {
   const navigate=useNavigate()
 
   const handleLogin=()=>{
-    navigate('/login')
+    navigate('/')
   }
 
   return (
@@ -41,11 +41,11 @@ const Homepage = () => {
             </div>
 
           <div className='right_third_cont' >
-            <Card title={"science"}/>
+            <Card title={"Science"}/>
             <Card title={"social"}/>
             <Card title={"finance"}/>
             <Card title={"technology"}/>
-            <Card title={"general knowledge"}/>
+            <Card title={"general"}/>
           </div>
           <div style={{width:'90%',display:'flex',justifyContent:'center',alignItems:'center',position:'relative',bottom:'0px'}}>
             <div style={{position:'absolute',bottom:'-240px'}}>

@@ -6,7 +6,7 @@ const quizHandler = async (req, res) => {
     try {
         const quizzes = await QuizModel.find({ topic });
         if (quizzes.length > 0) {
-            res.status(200).json({ quizzes });
+            res.status(200).json({ questions:quizzes });
         } else {
             res.status(404).json({ message: "No quizzes found for the given topic" });
         }

@@ -8,9 +8,12 @@ const UserValidation  = async(req,res)=>{
                 if(finder && password == finder.password){
                     res.status(200).json({message:`User found`});
                 }
+                else{
+                    res.status(400).json({message:`User not found`});
+                }
             }
             else{
-                res.status(404).json({message:"users not found"})
+                res.status(404).json({message:"user not found"})
             }
     }
     catch(err){

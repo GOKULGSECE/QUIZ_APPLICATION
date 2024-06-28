@@ -6,25 +6,47 @@
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-image: url("D:/Projects/Quiz_Application/Frontend/src/assets/OIP.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.quiz-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay to darken background */
 }
 
 .quiz-page .quiz-container {
     text-align: center;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), /* Main shadow */
+                0 16px 32px rgba(0, 0, 0, 0.2); /* Additional larger shadow for depth */
     width: 75%;
+    backdrop-filter: blur(10px); /* Increased blur for a more frosted look */
+    position: relative;
+    z-index: 1; /* Ensure the container is above the overlay */
 }
 
 /* Question styles */
 .quiz-page h2 {
     color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .quiz-page h3 {
     color: #666;
+    margin-bottom: 20px;
 }
 
 /* List styles */
@@ -35,40 +57,44 @@
 }
 
 .quiz-page li {
-    background:gold;
+    background: gold;
     margin: 10px 0;
-    padding: 10px;
+    padding: 15px;
     border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    margin-left: 250px;;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 250px;
     margin-right: 250px;
 }
 
 .quiz-page li:hover {
-    background: #ddd;
+    background: #ffdd57;
+    transform: scale(1.05);
 }
 
 /* Button styles */
 .quiz-page .buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 15px;
+    margin-top: 30px;
 }
 
 .quiz-page button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #007bff;
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .quiz-page button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 /* Styles for correct and incorrect answers */

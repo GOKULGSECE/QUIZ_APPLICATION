@@ -1,73 +1,107 @@
-import React, { useState, useEffect } from 'react';
-import { data } from '../data';
-import '../index.css';
+import React, { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import '../stylesheet/QuizMain.css';
+import { cardContext } from '../Context/cardContext';
 
 const Quiz = () => {
-    const [index, setIndex] = useState(0);
-    const [answered, setAnswered] = useState(false);
-    const [questions, setQuestions] = useState(data[index]);
+  const location = useLocation();
+  const { qTitle } = useContext(cardContext);
+  const [index, setIndex] = useState(0);
+  const [questions, setQuestions] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState({});
+  const [answered, setAnswered] = useState(false);
 
-    useEffect(() => {
-        setQuestions(data[index]);
-        setAnswered(false);
-    }, [index]);
-
-    const checkValidation = (e, answer) => {
-        if (answered) return;
-        setAnswered(true);
-
-        if (questions.answer === answer) {
-            e.target.classList.add("correct");
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        const response = await axios.post("http://localhost:5001/app/quiz/quizpage", { topic: qTitle });
+        if (response.data.questions && response.data.questions.length > 0) {
+          setQuestions(response.data.questions);
+          setCurrentQuestion(response.data.questions[0]);
         } else {
-            e.target.classList.add("incorrect");
+          console.error("No questions received from the backend.");
         }
-    };
-
-    const incrementValue = () => {
-        if (index < data.length - 1) {
-            setIndex(index + 1);
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+        if (error.response) {
+          // Server responded with a status code out of 2xx range
+          console.error("Response data:", error.response.data);
+          console.error("Response status:", error.response.status);
+          console.error("Response headers:", error.response.headers);
+        } else if (error.request) {
+          // Request was made but no response received
+          console.error("Request data:", error.request);
+        } else {
+          // Something else caused the error
+          console.error("Error message:", error.message);
         }
+      }
     };
 
-    const decrementValue = () => {
-        if (index > 0) {
-            setIndex(index - 1);
-        }
-    };
+    fetchQuestions();
+  }, [qTitle]);
 
-    const submitQuiz = () => {
-        console.log("Quiz submitted");
-    };
+  useEffect(() => {
+    if (questions.length > 0 && questions[index]) {
+      setCurrentQuestion(questions[index]);
+      setAnswered(false);
+    }
+  }, [index, questions]);
 
-    return (
-        <div className="quiz-page">
-            <div className="quiz-container">
-                <h2>{data[index].topic}</h2>
-                <hr />
-                <h3>{index + 1}. {questions.question}</h3>
-                <ul>
-                    {questions.options.map((option, optionIndex) => (
-                        <li 
-                            key={optionIndex} 
-                            onClick={(e) => checkValidation(e, optionIndex)} 
-                            className={answered ? "disabled" : ""}
-                        >
-                            {option}
-                        </li>
-                    ))}
-                </ul>
-                <div className="buttons">
-                    {index > 0 && <button onClick={decrementValue}>Previous</button>}
-                    {index < data.length - 1 ? (
-                        <button onClick={incrementValue}>Next</button>
-                    ) : (
-                        <button onClick={submitQuiz}>Submit</button>
-                    )}
-                </div>
-                <div className="questions-indicator">{index + 1} of {data.length} questions attempted</div>
-            </div>
+  const incrementValue = () => {
+    if (index < questions.length - 1) {
+      setIndex(index + 1);
+    }
+  };
+
+  const decrementValue = () => {
+    if (index > 0) {
+      setIndex(index - 1);
+    }
+  };
+
+  const submitQuiz = () => {
+    console.log("Quiz submitted");
+  };
+
+  const checkValidation = (e, optionIndex) => {
+    setAnswered(true);
+  };
+
+  if (questions.length === 0) {
+    return <div>No questions available for this topic: {qTitle}</div>;
+  }
+
+  return (
+    <div className="quiz-page">
+      <div className="quiz-container">
+        <h2>{qTitle} Quiz</h2>
+        <hr />
+        <h3>{index + 1}. {currentQuestion.question}</h3>
+        <ul>
+          {currentQuestion.options && currentQuestion.options.map((option, optionIndex) => (
+            <li 
+              key={optionIndex} 
+              onClick={(e) => checkValidation(e, optionIndex)} 
+              className={answered ? "disabled" : ""}
+            >
+              {option}
+            </li>
+          ))}
+        </ul>
+        <div className="buttons">
+          {index > 0 && <button onClick={decrementValue}>Previous</button>}
+          {index < questions.length - 1 ? (
+            <button onClick={incrementValue}>Next</button>
+          ) : (
+            <button onClick={submitQuiz}>Submit</button>
+          )}
         </div>
-    );
+        <div className="questions-indicator">{index + 1} of {questions.length} questions attempted</div>
+      </div>
+    </div>
+  );
 };
 
 export default Quiz;
